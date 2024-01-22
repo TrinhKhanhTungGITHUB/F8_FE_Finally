@@ -1,0 +1,13 @@
+/* Components Logo */
+.logo {
+  display: flex;
+  align-items: center;
+    gap: 14px;
+
+  &__title {
+    font-size: 22ren;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 145.455% 
+  }
+}

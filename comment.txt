@@ -1,2 +1,3 @@
 - Icon
 - Nhúng font
+- Cấu hình khởi tạo dự án
