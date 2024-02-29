@@ -1,13 +1,36 @@
 /* Components Logo */
+@use "../abstracts";
+
 .logo {
   display: flex;
   align-items: center;
-    gap: 14px;
+  gap: 14px;
+
+  @include abstracts.breakpoint(lg) {
+    gap: 10px;
+    margin-left: 40px;
+  }
+
+  @include abstracts.breakpoint(md) {
+    margin-left: 0;
+  }
 
   &__title {
-    font-size: 22ren;
-    font-style: normal;
+    font-size: 2.2rem;
     font-weight: 700;
-    line-height: 145.455% 
+    line-height: 145.455%;
+    color: var(--text-color);
+
+    @include abstracts.breakpoint(lg) {
+      font-size: 1.8 rem;
+    }
+  }
+
+  &__img {
+    @include abstracts.breakpoint(lg) {
+      width: 24px;
+      // height: 2rem;
+      // width: 2rem;
+    }
   }
 }
