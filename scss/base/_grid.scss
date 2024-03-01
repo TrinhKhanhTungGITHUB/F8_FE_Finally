@@ -1,6 +1,6 @@
+/*SCSS Base grid */
 @use "sass:math";
 
-// Breakpoints, dimension, container, row, column, v.v
 $grid-breakpoints: (
     xxl: 1400px,
     xl: 1200px,
@@ -43,6 +43,7 @@ $gutters: (
 
 .container {
     @extend .container-fluid;
+    width: 1370px;
 }
 
 .row {
@@ -52,7 +53,7 @@ $gutters: (
     margin-left: calc(var(--grid-gutter-x) * 0.5 * -1);
     margin-right: calc(var(--grid-gutter-x) * 0.5 * -1);
 
-    >* {
+    > * {
         margin-top: var(--grid-gutter-y);
         @extend %gutter-padding;
     }
@@ -63,14 +64,14 @@ $gutters: (
 }
 
 @mixin make-media-query($dimension) {
-    @media (min-width: ($dimension - 0.02)) {
+    @media (max-width: ($dimension - 0.02)) {
         @content;
     }
 }
 
 @mixin make-row-columns($infix: null) {
-    @for $i from 1 through $grid-columns {
-        .row-cols#{$infix}-#{$i}>* {
+    @for $i from 1 through $grid-columns * 0.5 {
+        .row-cols#{$infix}-#{$i} > * {
             flex: 0 0 auto;
             width: math.div(100%, $i);
         }
@@ -96,7 +97,6 @@ $gutters: (
 
 @mixin make-gutters($infix: null) {
     @each $i, $ratio in $gutters {
-
         .g#{$infix}-#{$i},
         .gx#{$infix}-#{$i} {
             --grid-gutter-x: #{$grid-gutter-width * $ratio};
